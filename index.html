@@ -3,95 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Mandingue African Restaurant & Grill | Frederick MD</title>
+    <title>Le Mandingue African Restaurant & Grill | Frederick, MD</title>
+    <!-- Google Fonts for Premium Typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #d63031;
-            --secondary: #e17055;
-            --dark: #2d3436;
-            --light: #f9f9f9;
+            --primary: #d63031;      /* Vibrant Pepper Red */
+            --accent: #ff9f43;       /* Warm Terracotta Orange */
+            --gold: #f1c40f;         /* Rich West African Gold */
+            --dark: #1e1e24;         /* Charcoal Black */
+            --light: #fffdf9;        /* Warm Cream White */
+            --card-bg: #ffffff;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
-        header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com') no-repeat center center/cover; color: white; text-align: center; padding: 100px 20px; }
-        header h1 { font-size: 2.8rem; margin-bottom: 10px; color: #fdcb6e; }
-        header p { font-size: 1.2rem; margin-bottom: 25px; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
-        .btn:hover { background: var(--secondary); }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        .section { background: white; padding: 30px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); border-bottom: 2px solid #ffeaa7; padding-bottom: 10px; margin-bottom: 20px; }
-        .menu-cat { margin-bottom: 25px; }
-        .menu-cat h3 { color: var(--secondary); margin-bottom: 10px; font-size: 1.3rem; }
-        .menu-item { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px dashed #dfe6e9; padding-bottom: 8px; }
-        .menu-item-name { font-weight: bold; }
-        .footer-info { text-align: center; font-size: 1.1rem; }
-        .footer-info p { margin: 10px 0; }
-        @media (max-width: 600px) { header h1 { font-size: 2rem; } }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background-color: var(--light); 
+            color: var(--dark); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+        }
+
+        /* --- SMOOTH ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 48, 49, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(214, 48, 49, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 48, 49, 0); }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(30, 30, 36, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- PREMIUM HERO SECTION --- */
+        header { 
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://unsplash.com') no-repeat center center/cover; 
+            color: white; 
+            text-align: center; 
+            padding: 180px 20px 120px 20px;
+            position: relative;
+        }
+
+        header h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem; 
+            margin-bottom: 15px; 
+            color: var(--gold);
+            font-weight: 900;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+        }
+
+        header p { 
+            font-size: 1.4rem; 
+            margin-bottom: 35px; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #f1f2f6;
+            font-weight: 300;
+        }
+
+        .btn { 
+            display: inline-block; 
+            background: var(--primary); 
+            color: white; 
+            padding: 16px 40px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            transition: 0.4s ease; 
+            border: 2px solid transparent;
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .btn:hover { 
+            background: transparent;
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* --- CONTAINER & SECTIONS --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        
+        .grid-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: -15px 15px 0px var(--gold);
+            object-fit: cover;
+            height: 380px;
+        }
+
+        /* --- INTERACTIVE MENU TABS --- */
+        .menu-section {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--primary);
+            margin-bottom: 80px;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 35px;
+            color: var(--dark);
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #f1f2f6;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(214, 48, 49, 0.3);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: #fffdf9;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            transition: 0.3s ease;
+            display: none; /* Controlled via JS */
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .menu-card.show { display: block; }
+        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .menu-name { font-size: 1.25rem; font-weight: 800; color: var(--dark); }
+        .menu-desc { font-size: 0.95rem; color: #57606f; }
+
+        /* --- CHARMING TESTIMONIALS SECTION --- */
+        .testimonials {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .testimonials h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; }
+        
+        .review-box {
+            background: linear-gradient(135deg, #1e1e24, #2d3436);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .review-box p { font-style: italic; font-size: 1.15rem; margin-bottom: 20px; }
+        .review-box span { color: var(--gold); font-weight: 700; }
+
+        /* --- LOGISTICS & MAP --- */
+        .footer-info { 
+            background: #1e1e24; 
+            color: white; 
+            padding: 60px 20px; 
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-details h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); margin-bottom: 20px; }
+        .info-details p { margin-bottom: 15px; font-size: 1.1rem; }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 320px;
+            border: 3px solid var(--gold);
+        }
+
+        /* --- RESPONSIVE STYLING --- */
+        @media (max-width: 850px) {
+            .grid-split, .footer-info { grid-template-columns: 1fr; gap: 40px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.8rem; }
+            .about-image img { height: 280px; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Top Navigation Menu -->
+    <nav>
+        <div class="nav-logo">LE MANDINGUE</div>
+        <div class="nav-links">
+            <a href="#about">Our Story</a>
+            <a href="#menu">Menu</a>
+            <a href="#visit">Find Us</a>
+        </div>
+    </nav>
+
+    <!-- Visual Hero Block -->
     <header>
-        <h1>Le Mandingue</h1>
-        <p>Authentic West African & Liberian Restaurant & Grill in Frederick, MD</p>
-        <a href="tel:3016624400" class="btn">📞 Call to Order Direct</a>
+        <div class="animate-fade-up">
+            <h1>Le Mandingue</h1>
+            <p>Vibrant West African & Liberian culinary traditions, perfectly grilled and seasoned right here in Frederick.</p>
+            <a href="tel:3016620064" class="btn">📞 Call to Order Carryout</a>
+        </div>
     </header>
 
     <div class="container">
-        <!-- About Section -->
-        <div class="section">
-            <h2>Taste the Tradition</h2>
-            <p>Welcome to Le Mandingue, your local home for authentic West African and Liberian comfort food. Every dish we serve is crafted with traditional, homemade spices, fresh ingredients, and a passion for flavor. From our signature smoky Jollof Rice to our slow-cooked Cassava Leaf, we bring the vibrant tastes of the DMV's West African community straight to your plate.</p>
-        </div>
-
-        <!-- Menu Section -->
-        <div class="section">
-            <h2>Our Specialties</h2>
-            
-            <div class="menu-cat">
-                <h3>Signature Rice Plates</h3>
-                <div class="menu-item"><span class="menu-item-name">Jollof Rice</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72; margin-bottom:15px;">Rich, smoky, perfectly spiced African rice served with your choice of grilled chicken, fried fish, or tender Dibi (lamb).</p>
-                
-                <div class="menu-item"><span class="menu-item-name">Cassava Leaf with Rice</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72; margin-bottom:15px;">Rich and savory Liberian-style greens slow-cooked to perfection, served over a bed of steaming white rice.</p>
-
-                <div class="menu-item"><span class="menu-item-name">Potato Greens</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72; margin-bottom:15px;">Fresh, tender greens traditionally prepared with rich palm oil and seasoned assorted proteins.</p>
-            </div>
-
-            <div class="menu-cat">
-                <h3>Grilled & Smoked Specialties</h3>
-                <div class="menu-item"><span class="menu-item-name">Dibi Lamb</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72; margin-bottom:15px;">Succulent, smoky grilled lamb seasoned with authentic West African spices, served sliced with grilled onions.</p>
-                
-                <div class="menu-item"><span class="menu-item-name">Attéké & Fish</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72; margin-bottom:15px;">Traditional Ivorian steamed cassava grain paired with perfectly fried or grilled whole fish and savory sides.</p>
-            </div>
-
-            <div class="menu-cat">
-                <h3>Traditional Soups & Sides</h3>
-                <div class="menu-item"><span class="menu-item-name">Egusi Soup with Fufu</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72; margin-bottom:15px;">Rich, hearty soup thickened with ground melon seeds and leafy greens, served with smooth, traditional fufu.</p>
-                
-                <div class="menu-item"><span class="menu-item-name">Snacks & Drinks</span></div>
-                <p style="margin-top:-10px; font-size:0.9rem; color:#636e72;">Sweet Fried Plantains, Kala (Puff-Puff), refreshing homemade Ginger Juice, and Hibiscus (Bissap) drinks.</p>
-            </div>
-        </div>
-
-        <!-- Location Section -->
-        <div class="section footer-info">
-            <h2>Visit or Order Carryout</h2>
-            <p><strong>📍 Location:</strong> 540 W South St, Frederick, MD 21701 <br><span style="font-size:0.9rem; color:#636e72;">(Right next to Rita's Italian Ice)</span></p>
-            <p><strong>⏰ Hours:</strong> Monday – Saturday: 11:00 AM – 9:00 PM | Sunday: Closed</p>
-            <p><strong>📞 Phone:</strong> (301) 662-4400</p>
-            <div style="margin-top: 20px; border-radius: 8px; overflow: hidden; height: 300px;">
-    <iframe src="https://google.com" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-
-        </div>
-    </div>
-
-</body>
-</html>
+        
+        <!-- About Section with Bold Side-Image Structure -->
+        <div class="grid-split" id="about">
+            <div class="about-text">
+                <h2>Taste the Tradition</h2>
